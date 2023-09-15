@@ -1,6 +1,5 @@
 # BiorythmicBot
 A telegram bot that sends biorythms on daily basis.
 
-# v1.0.0
-* Calculates biorythms based on your birthdate
-* Sends daily report at midnight
+# v1.0.1
+* Removes the possibility of the bot reaching telegram message character limit

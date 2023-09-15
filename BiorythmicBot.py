@@ -94,8 +94,12 @@ def DailyCheck():
         if len(people[n]) > 0:
             message = "Today's biorythms:\n"
             for person in people[n]:
-                biorythm = GenerateBiorythm(person.name, i) 
-                message = message + str(person.name) + "\n" + str(biorythm) + "\n"
+                biorythm = GenerateBiorythm(person.name, i)
+                if len(message) + len(str(person.name) + "\n" + str(biorythm)) > 4096:
+                    bot.send_message(text=message, chat_id=i)
+                    message = str(person.name) + "\n" + str(biorythm)
+                else:
+                    message = message + str(person.name) + "\n" + str(biorythm) + "\n"
             bot.send_message(text=message, chat_id=i)
         n+=1
     n=0
